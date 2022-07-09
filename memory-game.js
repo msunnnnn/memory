@@ -79,11 +79,9 @@ function handleCardClick(evt) {
   let flipped = document.querySelectorAll(`[flipped="true"]`)
 
   let match = this.getAttribute("matched")
-  console.log(match)
   if (match==="true"){
     return
   }
-  console.log("hi")
   if (flipped.length < 2 && flipped[0]!== this){
       flipCard(this)
   }
