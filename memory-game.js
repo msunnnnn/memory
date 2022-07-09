@@ -77,8 +77,13 @@ function handleCardClick(evt) {
   // ... you need to write this ...
 
   let flipped = document.querySelectorAll(`[flipped="true"]`)
-  let matched = document.querySelectorAll(`[matched="true"]`)
 
+  let match = this.getAttribute("matched")
+  console.log(match)
+  if (match==="true"){
+    return
+  }
+  console.log("hi")
   if (flipped.length < 2 && flipped[0]!== this){
       flipCard(this)
   }
@@ -90,13 +95,10 @@ function handleCardClick(evt) {
       flipped[0].setAttribute("flipped", "false")
       this.setAttribute("flipped", "false")
     }
-  }
-
   else{
       setTimeout(()=>{
       unFlipCard(this)
-      unFlipCard(flipped[0])}, 1000)
-    }
+      unFlipCard(flipped[0])}, 1000) }
 }
 
-
+}
