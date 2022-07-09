@@ -79,14 +79,10 @@ function handleCardClick(evt) {
   let flipped = document.querySelectorAll(`[flipped="true"]`)
   let matched = document.querySelectorAll(`[matched="true"]`)
 
-  for (let match of matched){
-    console.log(match)
-    if (this !== match && flipped.length < 2 && flipped[0]!== this){
+  if (flipped.length < 2 && flipped[0]!== this){
       flipCard(this)
   }
 
-
-  }
   if(flipped.length === 1 && flipped[0]!== this){
     if (this.className === flipped[0].className){
       flipped[0].setAttribute("matched","true")
@@ -94,12 +90,13 @@ function handleCardClick(evt) {
       flipped[0].setAttribute("flipped", "false")
       this.setAttribute("flipped", "false")
     }
-  // if (!(a[0].getAttribute("matched")) && !(this.getAttribute("matched"))){
+  }
+
   else{
       setTimeout(()=>{
       unFlipCard(this)
-      unFlipCard(flipped[0])}, 1000) }
-  }
+      unFlipCard(flipped[0])}, 1000)
+    }
 }
 
 
